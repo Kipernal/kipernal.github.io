@@ -1,0 +1,16 @@
+{
+  "title" :    "Tiếng Việt",
+  "title_en" : "Vietnamese Language",
+  "URL" :      "http://vi.wikipedia.org/wiki/Tiếng_Việt",
+  "date" :     "2014-9-19",
+  "order" :    11,
+  "text" : 
+  {
+    "paragraphs":
+    [
+      "Tiếng Việt, còn gọi tiếng Việt Nam hay Việt ngữ, là ngôn ngữ của người Việt (người Kinh) và là ngôn ngữ chính thức tại Việt Nam. Đây là tiếng mẹ đẻ của khoảng 85% dân cư Việt Nam, cùng với hơn bốn triệu người Việt hải ngoại Tiếng Việt còn là ngôn ngữ thứ hai của các dân tộc thiểu số tại Việt Nam. Mặc dù tiếng Việt có một số từ vựng vay mượn từ tiếng Hán và trước đây dùng chữ Hán để viết, sau đó được cải biên thành chữ Nôm, tiếng Việt được coi là một trong số các ngôn ngữ thuộc hệ ngôn ngữ Nam Á có số người nói nhiều nhất (nhiều hơn một số lần so với các ngôn ngữ khác cùng hệ cộng lại). Ngày nay tiếng Việt dùng bảng chữ cái Latinh, gọi là chữ Quốc ngữ, cùng các dấu thanh để viết.", 
+      "Tổ chức tiêu chuẩn hóa quốc tế đặt mã hai chữ cái cho tiếng Việt là \"vi\" (tiêu chuẩn ISO 639-1) và đặt đại mã ba chữ cái cho tiếng Việt là \"vie\" (tiêu chuẩn ISO 639-2).", 
+      "Tiếng Việt được chính thức ghi nhận trong hiến pháp là ngôn ngữ quốc gia của Việt Nam. Tiếng Việt bao gồm cách phát âm tiếng Việt và chữ Quốc ngữ để viết. Tuy nhiên, \"chưa có bất kỳ văn bản nào của Nhà nước (cấp quốc gia) công nhận đó là quốc tự...\""
+    ]
+  }
+}

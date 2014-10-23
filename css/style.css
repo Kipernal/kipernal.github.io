@@ -1,0 +1,215 @@
+/*
+ * Name: Matthew Szekely
+ * Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+ * Email: matthew_szekely@student.uml.edu
+ * Document created: September 10, 2014
+ * Document purpose: Main CSS file for all pages
+ */
+ 
+ /*@import url("reset.css");*/
+ @import url("http://fonts.googleapis.com/css?family=Cabin:400,400italic,700,700italic");
+
+body 
+{
+  background: #000000 url('../assets/back.png') fixed;
+  font-family: 'Cabin', sans-serif;
+  margin-top: 20px;
+  color: white;
+}
+
+h1
+{
+  text-align:center;
+  font-weight: bold;
+  margin: .67em 0;
+  font-size: 2em;
+}
+
+h2
+{
+  text-align:center;
+  font-weight: bold;
+  margin: .67em 0;
+  font-size: 1.5em;
+}
+
+/* Used to give elements the same margin as paragraphs when they cannot be contained by the p tag (such as tables) */
+.PseudoParagraph
+{
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
+/* We need new link colors to keep them readable with the dark color scheme.
+ * Also includes styling for normal text that behaves similarly to links 
+ */
+a:visited,    .PseudoLink:visited { cursor: pointer; text-decoration: underline; color:#0074EC; }
+a:link,       .PseudoLink         { cursor: pointer; text-decoration: underline; color:#00A3EC; }
+a:link:hover, .PseudoLink:hover   { cursor: pointer; text-decoration: underline; color:#00A3EC; }
+a:active,     .PseudoLink:active  { cursor: pointer; text-decoration: underline; color:#FF1C00; }
+
+
+
+/* CSS to auto number assignment entries.  Used to modify ordered lists, but it turns out you can't weave lists through tables! 
+ * Basically, we reset a counter to 1 at the start of every AssignmentList.
+ * Then we stick our custom text right before the normal text.
+ */
+.AssignmentList
+{
+  counter-reset: AssignmentListCounter;
+  counter-increment: AssignmentListCounter;
+}
+.AssignmentList .AssignmentEntry
+{
+  list-style: none;
+}
+.AssignmentList  .AssignmentEntry:before
+{
+  content: "Assignment " counter(AssignmentListCounter) ": ";
+  counter-increment: AssignmentListCounter;
+}
+
+
+/* The style for generic boxes of content.
+ * There's a rounded white border and a gray background. */
+.ContentBox
+{
+  margin: 28px 150px 28px 150px;
+  border-radius: 17px;
+  box-shadow: 8px 8px 4px #000;
+  
+  /* This color is just a bit lighter than the image used as the page's background. */
+  background-color: #3F3F3F;
+    
+  border: 3px solid white;
+  text-align:left;
+  padding: 15px;
+}
+
+
+
+/* This CSS all deals with the assignment info boxes that pop in and out when a checkbox is clicked. */
+
+
+/* This container's sole purpose is to be a relatively positioned "anchor" for the ExtraInfoBox it holds. */
+.ExtraInfoBoxContainer 
+{ 
+  position: relative; 
+}
+
+/* The info box itself. */
+.ExtraInfoBox 
+{ 
+
+  /* Position absolutely so we don't completely defeat the purpose of this thing by having it take up space. */
+  position: absolute; 
+  
+  /* For our transition between visible and invisible, use a transformation */
+  transition: transform 0.5s ease-out; /* cubic-bezier(0,.28,.58,1) */
+  
+  /* This is the transformation while invisible.  Both rotateY and scaleY here would work alone to make it invisible. */
+  transform: perspective(1200px) rotateY(-90deg) scaleY(0);
+  transform-origin: 0 0 0;
+  
+  /* When invisible (and/or disappearing), the z index should be lower than visible (and/or appearing) boxes. */
+  z-index: 1;
+  
+  /* Arbitrary width. */
+  width: 450px;
+  
+   /* Move it up to cover the text we used to show it. */
+  top: -1em;
+  
+  /* General styling information */
+  border-radius: 7px;
+  box-shadow: 8px 8px 4px #000;
+    
+  /* This color is just a bit lighter than the color of ContentBox. */
+  background-color: #494949;
+    
+  border: 3px solid white;
+  text-align:left;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Takes the ExtraInfoBoxContainer that comes after any given ExtraInfoRadioButton that is checked, and styles its ExtraInfoBox. */
+.ExtraInfoRadioButton:checked+.ExtraInfoBoxContainer>.ExtraInfoBox
+{ 
+  /* This is the transition the ExtraInfoBox uses between visible and invisible
+   * the transition is different here because one eases in and the other eases out.
+  */
+  transition: transform 0.5s ease-in; /* cubic-bezier(0,.28,.58,1) */
+  
+  /* The transformation when visible */
+  transform: perspective(1200px) rotateY(0deg) scaleY(1);
+  z-index: 2;
+}
+
+/* The close button placed at the top right of ExtraInfoBox.  Its position is absolute and is placed at the top right. */
+.ExtraInfoBoxCloseButton
+{
+  position: absolute;
+  right: 9px;
+  top: 9px;
+}
+
+
+.darkShadedTable
+{
+  border-collapse: collapse;
+}
+
+.darkShadedTable th
+{
+ min-width: 2em;
+ height: 2em;    /* CSS doesn't like min-height in tables */
+}
+
+/* Set the styles for the table headers and cells */
+.darkShadedTable th, .darkShadedTable td
+{
+  text-align: center;
+  border: 1px solid #888;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+}
+
+/* The first row of header cells gains a thicker border on the bottom */
+.darkShadedTable tr:first-child th { border-bottom: 2px solid #888; }
+
+/* The first column of header cells gains a thicker border on the bottom */
+.darkShadedTable tr:nth-child(n+2) th { border-right: 2px solid #888; }
+
+/* The final header cell on the right gains a black border to match the main cells */
+.darkShadedTable th:last-child { border-right: 1px solid #000; }
+
+/* The final header cell on the bottom left gains a black border to match the main cells */
+.darkShadedTable tr:last-child th { border-bottom: 1px solid #000; }
+
+/* All main table cells get a black border. */
+.darkShadedTable td { border: 1px solid #000; }
+
+/* "Base" color for the table, when no other color is specified */
+.darkShadedTable tr
+{
+  background-color: #3F3F3F;
+}
+
+/* Highlight every other row, column, and the points where they intersect. */
+.darkShadedTable tr:nth-child(2n+3)                    { background-color: #222; }
+.darkShadedTable tr td:nth-child(2n+3)                 { background-color: #222; }
+.darkShadedTable tr:nth-child(2n+3) td:nth-child(2n+3) { background-color: #111; }
+      
+      
+/* Same thing for headers */
+.darkShadedTable tr:nth-child(2n+2) th                 { background-color: #111; } /* Left column, evens */
+.darkShadedTable tr th:nth-child(2n+2)                 { background-color: #111; } /* Top row, evens */
+.darkShadedTable tr:nth-child(2n+3) th                 { background-color: #000; } /* Left column, odds */
+.darkShadedTable tr th:nth-child(2n+3)                 { background-color: #000; } /* Top row, odds */
+      
+/* Finally, make the top left corner invisible */
+.darkShadedTable tr:first-child th:first-child  
+{ 
+  border: 0px;
+}

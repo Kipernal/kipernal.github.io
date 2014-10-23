@@ -1,10 +1,215 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Index</title>
+    <meta charset="utf-8">
+    <!--
+    Name: Matthew Szekely
+    Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+    Email: matthew_szekely@student.uml.edu
+    Document created: September 10, 2014
+    Document purpose: Main jumping point to related pages
+    -->
+    
+    
+    <!-- Link to global CSS file -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+         
+    <title>Index - 91.461 mszekely@cs.uml.edu</title>
   </head>
+
   <body>
-    <h1>Hello World</h1>
-    <p>The index page to something.  I'm not sure what yet...</p>
+    <h1>Index</h1>
+    <br><br>
+
+    <h2>Assignments</h2>
+    <div class="ContentBox">
+      <div class="AssignmentList">
+        <div class="PseudoParagraph">
+          <table>
+            <tr>
+              <td><a href="Assignment2.html" class="AssignmentEntry">Creating Your First Web Page</a></td>
+              <td>
+              
+                <!-- 
+                The code for the CSS-only hidden info boxes.
+                Basically, we create an invisible radio button and base some CSS around its checked pseudo class.
+                When the radio button is checked, then the corresponding info box is invisible/collapsed.
+                When the radio button is unchecked, then the corresponding info box is visible/expanded.
+                Finally, we have a label that belongs to the invisible radio button so we can actually check and uncheck it.
+                The label is styled to look like a normal link.
+                -->
+                
+                <!-- This first radio button is used to deselect all the others to hide them. -->
+                <input id="ExtraInfoClearRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+      
+      
+      
+                
+                <!-- This is the label for the invisible radio button. -->
+                <label for="Assignment2ExtraInfoRadioButton" class="PseudoLink">Extra information for this assignment</label>
+                
+                <!-- This is the invisible radio button itself. -->
+                <input id="Assignment2ExtraInfoRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+                
+                <!-- ExtraInfoBoxContainer is used as a relatively positioned container for the actual absolutely positioned info box. -->
+                <div class="ExtraInfoBoxContainer">
+                
+                  <!-- The info box itself. -->
+                  <div class="ExtraInfoBox">
+                    <p>Due date: Tuesday, September 11, 2014</p>
+                    <p>This page, index.html, was the original URL for this assignment.  It has been archived in that form under the given link for reference purposes.</p>
+                    
+                    <!-- This final radio button "links" back to the dummy radio button earlier.  That dummy is associated with no info box, so all info boxes will be unchecked and closed. -->
+                    <div class="ExtraInfoBoxCloseButton">
+                      <label for="ExtraInfoClearRadioButton" class="PseudoLink"><img src="assets/close_button.png" alt="Close this window"></label>
+                    </div>
+                    <p><a href="http://validator.w3.org/unicorn/check?ucn_uri=http%3A%2F%2Fweblab.cs.uml.edu%2F~mszekely%2FAssignment2.html&amp;doctype=Inline&amp;charset=%28detect+automatically%29&amp;ucn_task=conformance" target='_blank'>W3 Validation</a></p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+            <!-- 
+            The same info box shenanigans are repeated here and on all completed assignments from here on out. 
+            For their documentation, see Assignment 2.
+            Most everything is the same except for some text adjustments.
+            -->
+            <tr>
+              <td><a href="index.html" class="AssignmentEntry">Styling Your First Web Page with CSS</a></td>
+              <td>
+                <label for="Assignment3ExtraInfoRadioButton" class="PseudoLink">Extra information for this assignment</label>
+                <input id="Assignment3ExtraInfoRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+                <div class="ExtraInfoBoxContainer">
+                  <div class="ExtraInfoBox">
+                    <p>Due date: Tuesday, September 23, 2014</p>
+                    <p>Because Assignment 3 involves making modifications to the content produced by Assignment 2, the URL for Assignment 3 is the same as the old URL for Assignment 2.  The old version of the page used for Assignment 2 has been archived.</p>
+                    <div class="ExtraInfoBoxCloseButton">
+                      <label for="ExtraInfoClearRadioButton" class="PseudoLink"><img src="assets/close_button.png" alt="Close this window"></label>
+                    </div>                    
+                    <p><a href="http://validator.w3.org/unicorn/check?ucn_uri=http%3A%2F%2Fweblab.cs.uml.edu%2F~mszekely%2Findex.html&amp;doctype=Inline&amp;charset=%28detect+automatically%29&amp;ucn_task=conformance" target='_blank'>W3 Validation</a></p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+            
+            
+            <tr>
+              <td><a href="http://kipernal.github.io/" class="AssignmentEntry" >Posting a Page to GitHub</a></td>
+              <td>
+                <label for="Assignment4ExtraInfoRadioButton" class="PseudoLink">Extra information for this assignment</label>
+                <input id="Assignment4ExtraInfoRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+                <div class="ExtraInfoBoxContainer">
+                  <div class="ExtraInfoBox">
+                    <p>Due date: Thursday, October 2, 2014</p>
+                    <div class="ExtraInfoBoxCloseButton">
+                      <label for="ExtraInfoClearRadioButton" class="PseudoLink"><img src="assets/close_button.png" alt="Close this window"></label>
+                    </div>                    
+                    <p><a href="http://validator.w3.org/unicorn/check?ucn_uri=http%3A%2F%2Fkipernal.github.io&amp;doctype=Inline&amp;charset=%28detect+automatically%29&amp;ucn_task=conformance" target='_blank'>W3 Validation</a></p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+            
+            <tr>
+              <td><a href="Assignment5.html" class="AssignmentEntry">Formatting Dynamic Text</a></td>
+              <td>
+                <label for="Assignment5ExtraInfoRadioButton" class="PseudoLink">Extra information for this assignment</label>
+                <input id="Assignment5ExtraInfoRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+                <div class="ExtraInfoBoxContainer">
+                  <div class="ExtraInfoBox">
+                    <p>Due date: Tuesday, October 7, 2014</p>
+                    <p>The exercise done in class, where the text was formatted to be in columns, can be found <a href="Assignment5_b.html">here</a>.</p>
+                    <p>The JSON files can be found here: </p>
+                    <ul>
+                      <li><a href="assets/english.json">English</a>
+                      <li><a href="assets/swedish.json">Swedish</a>
+                      <li><a href="assets/dutch.json">Dutch</a>
+                      <li><a href="assets/german.json">German</a>
+                      <li><a href="assets/french.json">French</a>
+                      <li><a href="assets/cebuano.json">Cebuano</a>
+                      <li><a href="assets/waray-waray.json">Waray-Waray</a>
+                      <li><a href="assets/russian.json">Russian</a>
+                      <li><a href="assets/italian.json">Italian</a>
+                      <li><a href="assets/spanish.json">Spanish</a>
+                      <li><a href="assets/vietnamese.json">Vietnamese</a>
+                      <li><a href="assets/polish.json">Polish</a>
+                      <li><a href="assets/japanese.json">Japanese</a>
+                      <li><a href="assets/portuguese.json">Portuguese</a>
+                      <li><a href="assets/chinese_simplified.json">Chinese</a>
+                      <li><a href="assets/chinese_classical.json">Classical Chinese</a>
+                    </ul>
+                    <div class="ExtraInfoBoxCloseButton">
+                      <label for="ExtraInfoClearRadioButton" class="PseudoLink"><img src="assets/close_button.png" alt="Close this window"></label>
+                    </div>                    
+                    <p><a href="http://validator.w3.org/unicorn/check?ucn_uri=http%3A%2F%2Fweblab.cs.uml.edu%2F~mszekely%2FAssignment5.html&amp;doctype=Inline&amp;charset=%28detect+automatically%29&amp;ucn_task=conformance" target='_blank'>W3 Validation</a></p>
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+            
+            <tr>
+              <td><a class="AssignmentEntry" href="Assignment6.html">Creating an Interactive Dynamic Table</a></td>
+              <td>
+                <label for="Assignment6ExtraInfoRadioButton" class="PseudoLink">Extra information for this assignment</label>
+                <input id="Assignment6ExtraInfoRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+                <div class="ExtraInfoBoxContainer">
+                  <div class="ExtraInfoBox">
+                    <p>Due date: ???</p>
+                    <div class="ExtraInfoBoxCloseButton">
+                      <label for="ExtraInfoClearRadioButton" class="PseudoLink"><img src="assets/close_button.png" alt="Close this window"></label>
+                    </div>                    
+                    <!-- <p><a target='_blank'>W3 Validation</a></p> -->
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+            
+            <tr>
+              <td><a class="AssignmentEntry">Using the jQuery Validation Plugin with your Dynamic Table</a></td>
+              <td>
+                <label for="Assignment7ExtraInfoRadioButton" class="PseudoLink">Extra information for this assignment</label>
+                <input id="Assignment7ExtraInfoRadioButton" class="ExtraInfoRadioButton" name="ExtraInfoRadioGroup" type="radio" style="display:none">
+                <div class="ExtraInfoBoxContainer">
+                  <div class="ExtraInfoBox">
+                    <p>Due date: ???</p>
+                    <div class="ExtraInfoBoxCloseButton">
+                      <label for="ExtraInfoClearRadioButton" class="PseudoLink"><img src="assets/close_button.png" alt="Close this window"></label>
+                    </div>                    
+                    <!-- <p><a target='_blank'>W3 Validation</a></p> -->
+                  </div>
+                </div>
+              </td>
+            </tr>
+            
+
+          </table>
+        </div>
+      </div>
+    
+      <p style="text-align: right">
+        <a href="http://jigsaw.w3.org/css-validator/check/referer">
+          <img style="border:0;width:88px;height:31px;" src="http://jigsaw.w3.org/css-validator/images/vcss-blue" alt="Valid CSS!" />
+        </a>
+      </p>
+    </div>
+
+    
+    
+    
+ 
+    
+    
+    
+    <h2>About</h2>
+    <div class="ContentBox">
+      <p>My name is Matthew Szekely, a CS student at UMass Lowell. And this exercise in minimalism is the index page for GUI Programming I.</p>
+      <p>More text may or may not go here in the future.</p>
+    </div>
+    
+   
   </body>
 </html>

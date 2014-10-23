@@ -1,0 +1,63 @@
+/*
+ * Name: Matthew Szekely
+ * Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+ * Email: matthew_szekely@student.uml.edu
+ * Document created: September 10, 2014
+ * Document purpose: Main CSS file for all pages
+ */
+
+body 
+{
+  background: #000000 url('../assets/back.png') fixed;
+  margin-top: 20px;
+  color: white;
+}
+
+h1,h2
+{
+ text-align:center;
+}
+
+/* We need new link colors to keep them readable with the dark color scheme. */
+a:visited { color:#0074EC; }
+a:link { color:#00A3EC; }
+a:active { color:#FF1C00; }
+
+
+/* CSS magic to make the ordered lists read "Assignment #:" instead of "#." 
+ * Basically, we reset a counter to 1 at the start of every ordered list that is a child of the assignment-list class. 
+ * Then, we make every list element that is a child of the assignment-list class display "nothing"
+ * Finally, we stick our custom text right before the normal list text (which has become nothing, so in effect we're replacing it)
+ */
+.assignment-list>ol
+{
+  counter-reset: AssignmentListCounter;
+  counter-increment: AssignmentListCounter;
+}
+.assignment-list>ol li
+{
+  list-style: none;
+}
+.assignment-list>ol li:before
+{
+  content: "Assignment " counter(AssignmentListCounter) ": ";
+  counter-increment: AssignmentListCounter;
+}
+
+
+
+.content-box
+{
+  margin-right: 150px;
+  margin-left: 150px;
+  border-radius: 17px;
+  box-shadow: 8px 8px 4px #000;
+  
+  /* This color is just a bit lighter than the image used as the page's background. */
+  background-color: #3F3F3F;
+    
+  border: 3px solid white;
+  text-align:left;
+  padding-left: 15px;
+  padding-right: 15px;
+}

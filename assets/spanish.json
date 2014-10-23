@@ -1,0 +1,17 @@
+{
+  "title" :    "Idioma Español",
+  "title_en" : "Spanish Language",
+  "URL" :      "http://es.wikipedia.org/wiki/Idioma_español",
+  "date" :     "2014-10-7",
+  "order" :    10,
+  "text" : 
+  {
+    "paragraphs":
+    [
+      "El idioma español o castellano es una lengua romance del grupo ibérico, originaria de Castilla, una región histórica de España. Se conoce también por el americanismo coloquial castilla (por ejemplo: «hablar castilla», «entender castilla»), común en áreas rurales e indígenas entre México y la Patagonia.", 
+      "Es la segunda lengua del mundo por el número de personas que la tienen como lengua materna, tras el chino mandarín, con 414 millones de hablantes nativos, y lo hablan como primera y segunda lengua con dominio nativo 470 millones, acercándose a los 550 millones de personas si contamos a hablantes con competencia limitada, de modo que puede ser considerada la tercera lengua del mundo por el total de hablantes tras el mandarín y el inglés, con más de 20 millones de estudiantes, y la segunda en comunicación internacional tras el inglés. El español posee la tercera mayor población alfabetizada del mundo (un 5,47 % del total), siendo la tercera lengua más utilizada para la producción de información en los medios de comunicación, y también la tercera lengua con más usuarios de Internet (182 millones, 8 % del total)", 
+      "Es hablada en España, Hispanoamérica, el Sáhara Occidental, Guinea Ecuatorial, en parte de Filipinas, y en la Isla de Pascua; siendo esta la oficial en gran parte de estos territorios. Es uno de los seis idiomas oficiales de la ONU. Es también idioma oficial en varias de las principales organizaciones político-económicas internacionales (UE, UA, OEA, OEI, TLCAN, Unasur, Caricom, ACP, y el Tratado Antártico, entre otras) y del ámbito deportivo (COI, FIFA, IAAF, etc.).", 
+      "El español, como las otras lenguas romances, es una continuación moderna del latín hablado (denominado latín vulgar), desde el siglo III, que tras el desmembramiento del Imperio romano fue divergiendo de las otras variantes del latín que se hablaban en las distintas provincias del antiguo Imperio, dando lugar mediante una lenta evolución a las distintas lenguas romances. Debido a su propagación por América, el español es, con diferencia, la lengua romance que ha logrado mayor difusión."
+    ]
+  }
+}

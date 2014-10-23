@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--
+    Name: Matthew Szekely
+    Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+    Email: matthew_szekely@student.uml.edu
+    Document created: October 21, 2014
+    Document purpose: Page for assignment 6
+    -->
+    
+    
+    <!-- Link to global CSS file -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    
+    
+    
+    <!-- 
+    Extra CSS used only for this page.  
+    Because it is used exclusively for this one purpose and thus cannot be reused, it is not placed in a separate file.
+    -->
+    <style>
+
+     
+    </style>
+    
+ 
+    <!-- Link to main jQuery library from Google -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      // Returns true if the given input (as defined by its CSS selector) is a valid number.
+      function inputIsValid(cssSelector)
+      {
+        return ($(cssSelector).val() !== "" && !isNaN($(cssSelector).val()));
+      }
+    
+      // For the given input (as defined by its CSS selector), style it according to whether or not its input is valid.
+      function validateInput(cssSelector)
+      {
+        if (inputIsValid(cssSelector) == false)
+        {
+          $(cssSelector).css("background-color","red");
+          return false;
+        }
+        else
+        {
+          $(cssSelector).css("background-color","white");
+          return true;
+        }
+      }
+
+      // Returns true if all inputs are valid (and thus the table can be generated).
+      function allInputsAreValid()
+      {
+        var startX = $("#HorizonalStartTextBox").val();
+        var endX = $("#HorizonalEndTextBox").val();
+        var startY = $("#VerticalStartTextBox").val();
+        var endY = $("#VerticalEndTextBox").val();
+        
+        return (inputIsValid("#HorizonalStartTextBox") && 
+                inputIsValid("#HorizonalEndTextBox") && 
+                inputIsValid("#VerticalStartTextBox") && 
+                inputIsValid("#VerticalEndTextBox") && 
+                Number(endX) >= Number(startX) &&
+                Number(endY) >= Number(startY))
+      }
+    
+      // Creates a table based on the inputs and returns the HTML as a string.
+      function generateTable(startX, endX, startY, endY)
+      {
+        var table = "<table class='darkShadedTable'>";
+        
+        startX = Number(startX);
+        startY = Number(startY);
+        endX = Number(endX);
+        endY = Number(endY);
+      
+        // First make the header
+        
+        table += "<tr><th>&nbsp;</th>";
+        for (var x = startX; x <= endX; x++)
+        {
+          table += "<th>" + x + "</th>"
+        }
+        table += "</tr>";
+        
+        // Now do each individual row.
+        for (var y = startY; y <= endY; y++)
+        {
+          table += "<tr><th>" + y + "</th>";
+          
+          for (var x = startX; x <= endX; x++)
+          {
+            table += "<td>" + (x * y) + "</td>";
+          }
+          
+          table += "</tr>";
+        }
+        
+        table += "</table>";
+        
+        return table;
+      }
+      
+      // Checks if all the inputs are valid and, if so, generates the table.
+      function checkAndGenerateTable()
+      {
+      
+          var startX = $("#HorizonalStartTextBox").val();
+          var endX = $("#HorizonalEndTextBox").val();
+          var startY = $("#VerticalStartTextBox").val();
+          var endY = $("#VerticalEndTextBox").val();
+        
+          
+          if (allInputsAreValid())
+          {
+            $("#content").html(generateTable(startX, endX, startY, endY));
+            $("#content").css("display","block");
+          }
+      }
+  
+      jQuery(document).ready(function() 
+      {
+    
+        // Whenever the input is changed, let the user know if their input is valid or not immediately.
+        $(".LimitsTextBox").on('input', function() 
+        {
+          validateInput("#HorizonalStartTextBox");
+          validateInput("#HorizonalEndTextBox");
+          validateInput("#VerticalStartTextBox");
+          validateInput("#VerticalEndTextBox");
+          
+          
+          checkAndGenerateTable();
+          
+        });
+      
+        $(".LimitsTextBox").blur(function() 
+        {
+          // When the user moves stops inputting text into a text box, force the numbers to be "in order"
+          // In other words, make sure the second valid is greater than the first for both groups.
+          // Finally, after doing that, if all input is valid, then generate the table.
+        
+          var startX = $("#HorizonalStartTextBox").val();
+          var endX = $("#HorizonalEndTextBox").val();
+          var startY = $("#VerticalStartTextBox").val();
+          var endY = $("#VerticalEndTextBox").val();
+        
+          // If both horizontal selectors are valid numbers, make sure the second is greater than the first.
+          if (inputIsValid("#HorizonalStartTextBox") && inputIsValid("#HorizonalEndTextBox"))
+            if (Number(endX) < Number(startX))
+              $("#HorizonalEndTextBox").val(Number(startX));
+        
+          // Same for the vertical selectors
+          if (inputIsValid("#VerticalStartTextBox") && inputIsValid("#VerticalEndTextBox"))
+            if (Number(endY) < Number(startY))
+              $("#VerticalEndTextBox").val(Number(startY));
+              
+              
+          checkAndGenerateTable();
+          
+        });
+      
+        
+        
+        checkAndGenerateTable();
+      
+      });
+    
+    </script>
+  
+
+    <title>Assignment 6 - 91.461 mszekely@cs.uml.edu</title>
+  </head>
+  
+  <body>
+    <h1>Assignment 6</h1>
+    <div class="ContentBox">
+      <p>
+        Please enter the limits of the values to use for the multiplication table. The table will be automatically generated once all four inputs have been filled in.
+      </p>
+      
+      <p>
+      <form>
+        
+        <!-- The table used as the selection form -->
+        <table>
+          <tr>
+            <td></td>
+            <td></td>
+            <td colspan="3">Top row values:<br></td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td><input type="text" id="HorizonalStartTextBox" name="HorizonalStartTextBox" class="LimitsTextBox" size="3"></td>
+            <td>to</td>
+            <td><input type="text" id="HorizonalEndTextBox" name="HorizonalEndTextBox" class="LimitsTextBox" size="3"><br></td>
+          </tr>
+          <tr>
+            <!-- The CSS for the vertical text is implemented here instead of 
+            in a CSS file because the top property's value depends on the text
+            used, thus it is content-related (until writing-mode is supported). -->
+            <td rowspan="3" style="min-width: 1.1em; position: relative"><div style="transform: rotate(-90deg); transform-origin: 0% 0%; position: absolute; top: 6em;">Left&nbsp;column&nbsp;values</div></td>
+            <td><input type="text" id="VerticalStartTextBox" name="VerticalStartTextBox" class="LimitsTextBox" size="3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+
+          </tr>
+          <tr>
+            <td style="text-align: center;">to</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td><input type="text" id="VerticalEndTextBox" name="VerticalEndTextBox" class="LimitsTextBox" size="3"></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      <br>
+      </form>
+
+      
+    </div>
+    
+    <!-- The generated table is inserted here -->
+    <div id ="content" class="ContentBox" style="display:none">
+    </div>
+   
+  </body>
+</html>

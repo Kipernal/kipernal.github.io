@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--
+    Name: Matthew Szekely
+    Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+    Email: matthew_szekely@student.uml.edu
+    Document created: October 10, 2014
+    Document purpose: Page for assignment 5
+    -->
+    
+    
+    <!-- Link to global CSS file -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    
+    <style>
+      .extras
+      {
+        font-size: 0.75em;
+        font-style: italic;
+      }
+    </style>
+    
+    <!-- 
+    Following code adapted from the code provided by Jessie Heines at
+    https://teaching.cs.uml.edu/~heines/91.461/91.461-2014-15f/461-assn/FormattingText-v04.jsp
+    -->
+    
+    <!--load jQuery library from the Google Content Delivery Network (CDN)
+    see http://encosia.com/3-reasons-why-you-should-let-google-host-jquery-for-you/
+    however, note that you obviously must be online for this to work
+    alternatively, you can download jQuery and store it locally from
+       http://jquery.com/download/
+  -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+  <!-- load the JSON file containing the text of Lincoln's Gettysburg address -->
+<script type="text/javascript">
+    var selectedLanguageIndex = 0;
+    // When the page has been loaded, select a random language and display it.
+    jQuery(document).ready(function() {
+      selectedLanguageIndex = Math.floor(Math.random() * (languages.length - 1));
+      document.getElementById("languageSelector").selectedIndex = selectedLanguageIndex;
+      document.getElementById("languageSelector").onchange();
+    });
+    
+    var jsonData;
+    
+    var languages = ["english", "swedish", "dutch", "german", "french", "cebuano", "waray-waray", "russian", "italian", "spanish", "vietnamese", "polish", "japanese", "portuguese", "chinese_simplified", "chinese_classical"]
+
+    // Note to advanced students:
+    //   Do *NOT* use the jQuery getJSON function here, because in this 
+    // application the AJAX call has to be synchronous (that is, we need to 
+    // wait for it to be done before continuing), and the getJSON function 
+    // is always asynchronous.  Reference:
+    // http://stackoverflow.com/questions/2765411/is-it-possible-to-set-asyncfalse-to-getjson-call
+    //   The other approach is to change the global jQuery ajaxSetup option, 
+    // but this is controversial, as discussed on the referenced page.
+    function getJsonDataByIndex(index, loadNow)
+    {
+      if (index < 0 || index > 15) 
+        return;
+      getJsonData(languages[index], loadNow);
+    }
+    
+    function getJsonData(languageName, loadNow)
+    {
+      jQuery.ajax({
+        async: false,
+        dataType: "json",
+        url: "assets/" + languageName + ".json",
+        success: function(data) 
+        {
+          jsonData = data;
+        }
+      });
+      if (loadNow == true)
+      {
+        placeContent();
+      }
+    }
+    
+    // Simple wrapper function that takes a drop down box and updates the page's language based on the box's selected index.
+    function languageBoxUpdate(box)
+    {
+      selectedLanguageIndex = box.selectedIndex;
+      if (box.selectedIndex >= 0) getJsonDataByIndex(selectedLanguageIndex, true);
+    }
+    
+    //getJsonDataByIndex(Math.floor(Math.random() * languages.length), false);
+      
+
+    
+  </script>
+  
+  <!-- script to determine browser type and set first paragraph class appropriately -->
+  <script type="text/javascript">
+    var strFirstParaClass = "";
+    var strNavString = navigator.userAgent;
+
+    if (strNavString.indexOf("Firefox") !== -1) 
+    {
+      strFirstParaClass = "Firefox";
+    } 
+    else if (strNavString.indexOf("Chrome") !== -1) 
+    {
+      strFirstParaClass = "Chrome";
+    } 
+    else if (strNavString.indexOf("Safari") !== -1) 
+    {
+      strFirstParaClass = "Safari";
+    }
+  </script>
+  
+  <!-- script to place JSON text in the placeholder on this page -->
+  <script type="text/javascript">
+    // N.B.  This version *does* apply the CSS.
+    function placeContent() 
+    {
+      var strContent = "";
+
+      // create dynamic content from JSON
+      strContent += "<h2 class='title'>" + jsonData.title + " (" + jsonData.title_en + ")</h2>";
+
+      // loop through all the paragraphs and sentences
+      for ( var para = 0 ; para < jsonData.text.paragraphs.length ; para++ ) 
+      {
+        strContent += "<p class=\"" + strFirstParaClass + "\">" + jsonData.text.paragraphs[para] + "</p>";
+      }
+      
+      strContent += "<div class=\"extras\">Retrieved from <a href=\"" + jsonData.URL + "\">" + jsonData.URL + "</a> using the version that was last modified on " + jsonData.date + ". This language is #" + jsonData.order + " in terms of article count.</div>";
+
+      // place dynamic content on page
+      // document.getElementById( "content" ).innerHTML = strContent ;
+      jQuery("#content").html(strContent);
+      
+      // Set the class of the content to be ContentBox.
+      document.getElementById("content").style.display = "block";
+    }
+  </script>
+
+    <title>Assignment 5 - 91.461 mszekely@cs.uml.edu</title>
+  </head>
+  
+  <body>
+    <h1>Assignment 5</h1>
+    <div class="ContentBox">
+      <p>
+        A random language is chosen from the top 15 Wikipedias (ordered by article count), and then the introduction for that language's entry for itself is displayed.
+        Note that as the content is stored in a JSON file, it is not dynamically fetched from Wikipedia.  As such, it may be out of date.
+      </p>
+      <p>
+        The content is chosen on page load.  You can alternatively set the language here:
+        
+        <!-- Drop down box to select the language.  When its value changes it calls the necessary JavaScript. -->
+        <select name="language" id="languageSelector" onchange="languageBoxUpdate(this)">
+          <option value="0">English</option>
+          <option value="1">Swedish</option>
+          <option value="2">Dutch</option>
+          <option value="3">German</option>
+          <option value="4">French</option>
+          <option value="5">Cebuano</option>
+          <option value="6">Waray-waray</option>
+          <option value="7">Russian</option>
+          <option value="8">Italian</option>
+          <option value="9">Spanish</option>
+          <option value="10">Vietnamese</option>
+          <option value="11">Polish</option>
+          <option value="12">Japanese</option>
+          <option value="13">Portuguese</option>
+          <option value="14">Chinese</option>
+        </select>
+      </p>
+      <p>
+        The entry for Chinese also includes a link to Classical Chinese.
+      </p>
+    </div>
+    
+    <div id ="content" class="ContentBox" style="display:none">
+    </div>
+   
+  </body>
+</html>

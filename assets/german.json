@@ -1,0 +1,14 @@
+{
+  "title" :    "Deutsche Sprache",
+  "title_en" : "German Language",
+  "URL" :      "http://de.wikipedia.org/wiki/Deutsche_Sprache",
+  "date" :     "2014-09-28",
+  "order" :    4,
+  "text" : 
+  {
+    "paragraphs":
+    [
+      "Die deutsche Sprache gehört zum westlichen Zweig der germanischen Sprachen und wird im deutschen Sprachraum in Deutschland, Österreich, der Deutschschweiz, Liechtenstein, Luxemburg, Ostbelgien, Südtirol, im Elsass und Lothringen sowie von Minderheiten in weiteren mittel- und außereuropäischen Ländern gesprochen. Deutsch ist eine Nationalsprache im afrikanischen Namibia. Zu seinen Varietäten gehören einerseits die deutsche Standardsprache als Dachsprache, die auf der Grundlage hochdeutscher Mundarten entstanden ist und auch als Hochdeutsch, Standarddeutsch, Schriftdeutsch oder als deutsche Literatursprache bezeichnet wird, andererseits eine Vielzahl von Lokaldialekten in einem Dialektkontinuum, die sich in hochdeutsche und niederdeutsche Mundarten aufteilen lassen. Das Deutsche ist eine bedeutende Regionalsprache und die meistgesprochene Muttersprache in der Europäischen Union und wird zu den zehn wichtigsten Sprachen der Welt gezählt."
+    ]
+  }
+}
