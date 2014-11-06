@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--
+    Name: Matthew Szekely
+    Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+    Email: matthew_szekely@student.uml.edu
+    Document created: October 25, 2014
+    Document purpose: Page for assignment 6.5
+    -->
+    
+    
+    <!-- Link to global CSS file -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+    
+ 
+    <!-- Link to main jQuery library from Google -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+      jQuery(document).ready(function() 
+      {
+        // Run this function whenever something is typed into the text box.
+        $(".NumericTextBox").on('input', function() 
+        {
+          validateInput("#NumericTextBox");
+        })
+        
+        // Also run the function when the page loads
+        validateInput("#NumericTextBox")
+      })          
+        
+      // Returns true if the given input (as defined by its CSS selector) is a valid number.
+      function inputIsValid(cssSelector)
+      {
+        return ($(cssSelector).val() !== "" && !isNaN($(cssSelector).val()));
+      }
+    
+      // For the given input (as defined by its CSS selector), style it according to whether or not its input is valid.
+      function validateInput(cssSelector)
+      {
+        if (inputIsValid(cssSelector) == false)
+        {
+          $(cssSelector).css("background-color","red");
+          return false;
+        }
+        else
+        {
+          $(cssSelector).css("background-color","green");
+          return true;
+        }
+      }
+    </script>
+
+
+    <title>Assignment 6.5 - 91.461 mszekely@cs.uml.edu</title>
+  </head>
+  
+  <body>
+    <h1>Assignment 6.5</h1>
+    <div class="ContentBox">
+      <p>
+        Please input a number--any number.  Green indicates the input is valid; red is invalid.
+      </p>
+      
+      <p>
+      <form>
+        <input type="text" id="NumericTextBox" name="NumericTextBox" class="NumericTextBox"></td>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <!--
+    Name: Matthew Szekely
+    Affiliation: UMass Lowell student taking 91.461 GUI Programming I
+    Email: matthew_szekely@student.uml.edu
+    Document created: October 28, 2014
+    Document purpose: Page in-class exercise
+    -->
+    
+    
+    <!-- Link to global CSS file -->
+    <link type="text/css" rel="stylesheet" href="css/style.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
+    <script type="text/javascript">   
+      function loadContentFromHash()
+      {
+        var url = location.hash.substr(1);
+        url = "assets/assignment_7b/" + url + ".html";
+        $.get(url, function(loadedHTML)
+        {
+          $("#content").html(loadedHTML);
+          document.getElementById("content").style.display = "block";
+        });
+      }
+      
+      $(window).bind('hashchange', loadContentFromHash);
+    </script>
+
+    <title>Assignment 7b - 91.461 mszekely@cs.uml.edu</title>
+  </head>
+  
+  <body>
+    <h1>Assignment 7b</h1>
+    <div class="ContentBox">
+      <nav>
+        <!-- Nav links must all be on one line to prevent a space from appearing between them -->
+        <!-- &#8203 is a zero-width space, used to allow line breaks between links if they won't fit on one line -->
+        <a href="#example1">Example 1</a>&#8203;<a href="#example2">Example 2</a>&#8203;<a href="#example3">Example 3</a>
+      </nav>
+      <div id ="content">
+        Click on a link above to view its content.
+      </div>
+    </div>
+    
+
+   
+  </body>
+</html>

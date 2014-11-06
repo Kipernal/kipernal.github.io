@@ -213,3 +213,46 @@ a:active,     .PseudoLink:active  { cursor: pointer; text-decoration: underline;
 { 
   border: 0px;
 }
+
+
+
+
+
+
+
+
+nav
+{
+  margin: 12px 150px 28px 150px;
+  border-radius: 6px;
+  box-shadow: 0px 0px 13px #000;
+  
+  /* This color is just a bit lighter than the image used as the page's background. */
+    
+  padding: 6px;
+  
+  text-align: center;
+}
+
+nav a
+{
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding-left: 6px;
+  padding-right: 6px;
+  margin-right: -1px;  /* Make it so that we only get the appearance of one border when two links appear side-by-side. */
+  white-space: nowrap; /* Links should not wrap lines (though the nav bar itself can wrap). */
+  line-height: 170%;   /* Give a little extra space between lines */
+}
+
+
+
+
+
+
+
+
+
+
+
+
